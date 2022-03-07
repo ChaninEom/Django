@@ -12,12 +12,27 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <title>Hello, world!</title>
+
+    <style>
+        .box {
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%;
+    overflow: hidden;
+    }
+    .profile {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    input:focus {outline: none; border: none;}
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; width: 100%;">
         <div class="container-fluid" style="justify-content: space-between; flex-wrap: nowrap; min-width: 1000px;">
-            <a class="navbar-brand" href="#"><img style="width:130px; "
+            <a class="navbar-brand" href="#"><img style="width:130px;"
                 src="https://scontent.ficn4-1.fna.fbcdn.net/v/t39.2365-6/174850829_913187455924480_6064046574054155671_n.png?_nc_cat=109&ccb=1-5&_nc_sid=ad8a9d&_nc_ohc=zuelTVOh9AIAX_2y1Bj&_nc_ht=scontent.ficn4-1.fna&oh=00_AT90zCjn_9lAd5MnKNaoaQH0mHCmQsBgCwEJ2LyPIc0FbQ&oe=62290A1D"></a>
                 <input style="width: 400px;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <div>
@@ -26,10 +41,49 @@
                     <span class="material-icons-outlined">add_box</span>
                     <span class="material-icons-outlined">explore</span>
                     <span class="material-icons-outlined">favorite_border</span>
-                </div>
+                </div>  
             </div>
         </div>
     </nav>
+    <div style="display: flex; flex-direction: row; text-align: center; justify-content:center; padding-top: 60px; background-color: #fafafa;">
+        <div style="width:500px; min-width: 500px ; height: 1000px; margin-right: 256px;">
+            <div style="border: solid 1px gray; background-color: white;">
+                <div style="display: flex; flex-direction: row; align-items: center; margin-left: 10px;">
+                    <div class="box" style="background: #BDBDBD; width: 50px; height: 50px;">
+                        <img class="profile"
+                        src="https://dimg.donga.com/wps/NEWS/IMAGE/2021/01/17/104953245.2.jpg">
+                    </div>
+                    <div>
+                        Johnny
+                    </div>
+                </div>
+                <div>
+                    <img style="width: 100%;" 
+                    src="https://kr.blog.kkday.com/wp-content/uploads/jeju_island_east_coast_cafe_19.jpg">
+                </div>
+                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <div style="margin: 0 10px;">
+                        <span class="material-icons-outlined">favorite_border</span>
+                        <span class="material-icons-outlined">mode_comment</span>
+                        <span class="material-icons-outlined">send</span>
+                    </div>
+                    <div style="margin: 0 10px;">
+                        <span class="material-icons-outlined">bookmark_border</span>
+                    </div>
+                </div>
+                <div style="margin: 0 10px; text-align: left; font-size: 14px;">Johnny<b>외 7명</b>이 좋아합니다.</div>
+                <div style="margin: 0 10px; text-align: left; font-size: 16px;"><b>Johnny</b> 요즘 날씨가 좋아서 제주도 가고 싶네요ㅜㅜ</div>
+                <div style="margin: 0 10px; text-align: left; font-size: 14px;"><b>soonsil</b> 나도 제주도 가고 싶다 ㅎㅎ</div>
+                <div style="margin: 0 10px; text-align: left; font-size: 14px;"><b>__university__</b> 코로나 언제 끝나... 살려죠</div>
+                <div style="border-top: solid 1px gray;">
+                    <input style="box-shadow: none; border: none; outline: none;" type="text" class="form-control" placeholder="댓글달기...">
+                </div>
+            </div>
+        </div>
+        <div style="width: 400px; height: 1000px; background-color: orange; position: fixed; left: 62%;">
+            오른쪽
+        </div>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
