@@ -263,7 +263,7 @@
     <!--첫번째 모달-->
     <div id="first_modal" class="modal_overlay">
         <div class="modal_window">
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div style="border-bottom: solid 1px gray; display: flex; flex-direction: row; justify-content: space-between;">
                 <div style="width: 40px;"></div>
                 <div>
                     새 이미지 업로드
@@ -280,7 +280,7 @@
     <!--두번째 모달-->
     <div id="second_modal" class="modal_overlay">
         <div class="modal_window">
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div style="border-bottom: solid 1px gray; display: flex; flex-direction: row; justify-content: space-between;">
                 <div style="width: 40px;"></div>
                 <div>
                     새 이미지 업로드
@@ -293,14 +293,21 @@
             <div style="display: flex; flex-direction: row;">
                 <div class="image_upload_spcae" style="width: 500px; height: 540px; margin-top: 10px;">
                 </div>
-                <div>
-                    글 입력하는 곳
+                <div style = 'border-left: solid 1px gray;'>
+                    <textarea id = 'input_feed_content' class="form-control"  style="width: 276px; height: 400px;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div>
+                        <buttontype="button" id="feed_create_button" style="width: 100%;" class="btn btn-primary">
+                            공유하기
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
     <script>
+        let files;
+
         $('#nav_bar_addbox').click(function(){
             $('#first_modal').css({
                 display : 'flex'
@@ -335,7 +342,7 @@
             e.preventDefault();
         
             e.dataTransfer = e.originalEvent.dataTransfer;
-            var files = e.target.files || e.dataTransfer.files;
+            files = e.target.files || e.dataTransfer.files;
         
             if (files.length > 1) {
                 alert('하나만 올려라.');
@@ -360,10 +367,44 @@
                 });
             }else{
             alert('이미지가 아닙니다.');
-            return;
-}
+            return;}
 
         }
+
+        $('#feed_create_button').click(function()
+        {
+            alert('공유하기를 눌렀습니다!');
+            
+            let file = files;
+            let image = file[0].name;
+            let content = $('#input_feed_content').val();
+            let user_id = 'Johnny';
+            let profile = 'src="https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/hn/2020/12/31/7616093925668489.png"';
+
+            let fd = new FormData();
+            fd.append('file', file);
+            fd.append('image', image);
+            fd.append('content', content);
+            fd.append('user_id', user_id);
+            fd.append('profile', profile);
+
+            $.ajax({
+                url : '/content/upload',
+                data : fd,
+                method : 'POST',
+                processData : false,
+                contentType : false,
+                success : function(data){
+                    console.log('성공');
+                },
+                error : function (request, status, error){
+                    console.log('에러')
+                },
+                compile : function(){
+                    console.log('완료')
+                }
+            })
+        })
 
         
     </script>
